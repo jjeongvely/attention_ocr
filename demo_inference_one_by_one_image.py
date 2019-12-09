@@ -28,7 +28,7 @@ import time
 import os
 
 #You shoud change this!!
-import common_flags_malay as common_flags
+import common_flags_600by150 as common_flags
 
 
 FLAGS = flags.FLAGS
@@ -36,6 +36,9 @@ common_flags.define()
 
 # e.g. ./datasets/data/fsns/temp/fsns_train_%02d.png
 flags.DEFINE_string('image_path_pattern', '',
+                    'A file pattern with a placeholder for the image index.')
+
+flags.DEFINE_string('dir_path', '',
                     'A file pattern with a placeholder for the image index.')
 
 
@@ -88,7 +91,7 @@ def main(_):
           session_creator=session_creator) as sess:
 
     #active a dummy image
-    images_data = load_images("/home/qisens/tensorflow/models/research/attention_ocr/python/test/dummy/number_plates_00.png", 1, FLAGS.dataset_name)
+    images_data = load_images("/home/qisens/tensorflow/models/research/attention_ocr/malay/dummy/number_plates_00.png", 1, FLAGS.dataset_name)
     prediction = sess.run(endpoints.predicted_text, feed_dict={images_placeholder: images_data})
 
     correct = 0
