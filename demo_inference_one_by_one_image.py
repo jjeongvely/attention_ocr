@@ -106,7 +106,7 @@ def main(_):
         images_data = load_images(file_path, 1, FLAGS.dataset_name)
         prediction = sess.run(endpoints.predicted_text, feed_dict={images_placeholder: images_data})
         recog_endtime = time.time()
-        print("[time] {:<10.3f}   ".format(max(recog_endtime - recog_startime, 0)), end="", flush=True)
+        print('\033[0m'+"[time] {:<10.3f}   ".format(max(recog_endtime - recog_startime, 0)), end="", flush=True)
 
         prediction = prediction.tolist()
         predicted_gt = ''
@@ -115,14 +115,16 @@ def main(_):
             break
           predicted_gt += chr
 
-        print('[image] {:<13}   [prediction] {:<12}'.format(gt, predicted_gt))
+        #print('[image] {:<13}   [prediction] {:<12}'.format(gt, predicted_gt))
         if (gt == predicted_gt):
+          print('\033[0m'+'[image] {:<13}   [prediction] {:<12}'.format(gt, predicted_gt))
           correct += 1
         else:
           incorrect += 1
+          print('\033[91m'+'[image] {:<13}   [prediction] {:<12}'.format(gt, predicted_gt))
 
     accuracy = (correct / (correct + incorrect)) * 100
-    print("Accuracy : {0:.2f}%".format(accuracy))
+    print('\033[0m'+"Accuracy : {0:.2f}%".format(accuracy))
 
 if __name__ == '__main__':
   tf.app.run()

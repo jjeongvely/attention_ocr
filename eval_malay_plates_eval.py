@@ -32,7 +32,7 @@ FLAGS = flags.FLAGS
 common_flags.define()
 
 # yapf: disable
-flags.DEFINE_integer('num_batches', 98,
+flags.DEFINE_integer('num_batches', 1,
                      'Number of batches to run eval for.')
 
 flags.DEFINE_string('eval_log_dir', '/media/qisens/4tb2/attention_ocr/malay_plates_eval/eval_0',

@@ -17,9 +17,9 @@ DEFAULT_CONFIG = {
     },
     'charset_filename':
         'charset_size=134.txt',
-    'image_shape': (150,600,3),#(max_width, max_height, 3),
+    'image_shape': (150,150,3),#(max_width, max_height, 3),
     'num_of_views':
-        4,
+        1,
     'max_sequence_length':
         37, # TO BE CONFIGURED
     'null_code':
