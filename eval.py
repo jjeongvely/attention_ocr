@@ -24,16 +24,16 @@ from tensorflow import app
 from tensorflow.python.platform import flags
 
 import data_provider
-import common_flags
+import common_flags_600by150 as common_flags
 
 FLAGS = flags.FLAGS
 common_flags.define()
 
 # yapf: disable
-flags.DEFINE_integer('num_batches', 100,
+flags.DEFINE_integer('num_batches', 500,
                      'Number of batches to run eval for.')
 
-flags.DEFINE_string('eval_log_dir', '/tmp/attention_ocr/eval',
+flags.DEFINE_string('eval_log_dir', '/media/qisens/4tb2/attention_ocr/korean_plates/eval_0',
                     'Directory where the evaluation results are saved to.')
 
 flags.DEFINE_integer('eval_interval_secs', 60,
